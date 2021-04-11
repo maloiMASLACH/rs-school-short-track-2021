@@ -15,7 +15,7 @@ function findIndex(arr, value) {
   const a = arr;
   const k = value;
   let cen = Math.round((a.length - 1) / 2);
-  while (true) {
+  while (a[cen]) {
     if (k > a[cen]) {
       cen = Math.round(cen / 2 + cen);
       if (cen > a.length - 1) {
@@ -28,6 +28,7 @@ function findIndex(arr, value) {
       return cen;
     }
   }
+  return 1;
 }
 
 module.exports = findIndex;

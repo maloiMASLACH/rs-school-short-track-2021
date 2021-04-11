@@ -1,4 +1,18 @@
 /**
+ * let s=[]
+l=l+''
+k=k+''
+  l=l.split(',')
+  for(let i=0;i<l.length;i++){
+    if(l[i]===k){
+      l.splice(i,1)
+    }
+  }
+for(let i=0;i<l.length;i++){
+  s.push(+l[i])
+}
+
+  return s
  * Given a singly linked list of integers l and an integer k,
  * remove all elements from list l that have a value equal to k.
  *
@@ -17,8 +31,30 @@
  * }
  */
 
-function removeKFromList(/* l, k */) {
-  throw new Error('Not implemented');
+function removeKFromList(str, k) {
+  let l = str;
+  const n = k;
+  let q = null;
+  let t;
+  let p;
+
+  while (l.next) {
+    if (l.value === n) {
+      if (!q) {
+        q = l.next;
+      }
+      t = l.next;
+      if (p) {
+        p.next = t;
+      }
+      l.next = null;
+      l = t;
+    } else {
+      p = l;
+      l = l.next;
+    }
+  }
+  return q;
 }
 
 module.exports = removeKFromList;
